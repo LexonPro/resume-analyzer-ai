@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>AI Resume Analyzer</title>
+
+<style>
+
+body{
+    font-family: Arial;
+    background:#f4f6f8;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.card{
+    background:white;
+    padding:40px;
+    border-radius:12px;
+    box-shadow:0px 10px 25px rgba(0,0,0,0.1);
+    text-align:center;
+    width:420px;
+}
+
+h1{
+    margin-bottom:25px;
+}
+
+button{
+    background:#4CAF50;
+    color:white;
+    border:none;
+    padding:12px 25px;
+    border-radius:6px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+button:hover{
+    background:#43a047;
+}
+
+.result{
+    margin-top:25px;
+    text-align:left;
+}
+
+.skill{
+    background:#e3f2fd;
+    padding:6px 10px;
+    border-radius:5px;
+    display:inline-block;
+    margin:4px;
+}
+
+.score{
+    font-size:24px;
+    font-weight:bold;
+    color:#4CAF50;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+<h1>AI Resume Analyzer</h1>
+
+<form action="/analyze" method="post" enctype="multipart/form-data">
+
+<input type="file" name="file" required>
+
+<br><br>
+
+<button type="submit">Analyze Resume</button>
+
+</form>
+
+{% if score %}
+
+<div class="result">
+
+<p class="score">ATS Score: {{score}}</p>
+
+<h3>Detected Skills</h3>
+
+{% for skill in skills %}
+
+<span class="skill">{{skill}}</span>
+
+{% endfor %}
+
+</div>
+
+{% endif %}
+
+</div>
+
+</body>
+
+</html>

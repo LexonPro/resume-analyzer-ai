@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ATS Resume Checker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="card">
+    <h1>ATS Resume Analyzer 🚀</h1>
+
+    <input type="file" id="resume" accept=".pdf">
+
+    <textarea id="jd" placeholder="Paste Job Description..."></textarea>
+
+    <button onclick="analyze()">Analyze</button>
+
+    <div id="loader" class="hidden">Analyzing...</div>
+
+    <div id="result" class="hidden">
+      <h2>Score: <span id="score"></span>%</h2>
+
+      <div class="progress">
+        <div id="progress-bar"></div>
+      </div>
+
+      <h3>Missing Keywords</h3>
+      <div id="keywords" class="tags"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
